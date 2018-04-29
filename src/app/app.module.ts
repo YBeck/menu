@@ -1,10 +1,11 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-
+import { MatListModule } from "@angular/material/list";
 import { AppComponent } from "./app.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AddFoodItemComponent } from "./add-food-item/add-food-item.component";
@@ -12,21 +13,19 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { HomeComponent } from "./home/home.component";
-
-const routes = [
-  {
-    path: "addItem",
-    component: AddFoodItemComponent
-  },
-  {
-    path: "",
-    component: HomeComponent
-  }
-];
+import { routes } from "../utils/routes";
+import { MenuService } from "./menu.service";
+import { DiplayComponent } from "./diplay/diplay.component";
 
 @NgModule({
-  declarations: [AppComponent, AddFoodItemComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    AddFoodItemComponent,
+    HomeComponent,
+    DiplayComponent
+  ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
@@ -36,9 +35,10 @@ const routes = [
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatListModule
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

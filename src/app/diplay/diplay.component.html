@@ -1,0 +1,15 @@
+<div *ngFor="let item of items" class="card" style="cursor: pointer;" [routerLink]="['/displayItems', item._id]">
+  <mat-card>
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-content *ngIf="ingredients">
+      <mat-list>
+        <mat-card-subtitle>Ingredients</mat-card-subtitle>
+        <mat-list-item *ngFor="let ing of ingredients">
+          {{ing}}
+        </mat-list-item>
+      </mat-list>
+      <mat-card-subtitle>Dierctions</mat-card-subtitle>
+      <br/>{{item.dierctions}}
+    </mat-card-content>
+  </mat-card>
+</div>

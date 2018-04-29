@@ -1,0 +1,8 @@
+.addForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.addForm > * {
+  width: 100%;
+}
