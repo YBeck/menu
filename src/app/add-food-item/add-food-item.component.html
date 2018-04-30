@@ -1,3 +1,9 @@
+<h2 style="color: red" *ngIf="error">
+  Please fill in required field.
+</h2>
+<h2 style="color: green" *ngIf="success">
+  Successfully added {{name}}
+</h2>
 <mat-card>
   <mat-card-title>
     Add a food item
@@ -11,7 +17,7 @@
         <textarea matInput placeholder="Item ingredients" formControlName="ingredients"></textarea>
       </mat-form-field>
       <mat-form-field>
-        <textarea matInput placeholder="Item dierctions" formControlName="dierctions"></textarea>
+        <textarea matInput placeholder="Item directions" formControlName="directions"></textarea>
       </mat-form-field>
       <mat-card-actions>
         <button mat-raised-button type="submit" color="primary">Add</button>

@@ -37,6 +37,19 @@ router.get("/foodItems", (req, res) => {
     });
 });
 
+router.post("/foodItems", (req, res) => {
+  const name = req.body.name;
+  const ingredients = req.body.ingredients;
+  const directions = req.body.directions;
+  db
+    .collection("foodItems")
+    .insertOne({ name, ingredients, directions })
+    .then(results => {
+      res.send(JSON.stringify(results));
+    })
+    .catch(console.error);
+});
+
 MongoClient.connect(url, (err, client) => {
   if (err) {
     throw err;
