@@ -10,7 +10,7 @@ let db;
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.get("/foodItems/:id", (req, res) => {
+router.get("/foodItem/:id", (req, res) => {
   db
     .collection("foodItems")
     .find({ _id: ObjectId(req.params.id) })
@@ -23,10 +23,10 @@ router.get("/foodItems/:id", (req, res) => {
     });
 });
 
-router.get("/foodItems", (req, res) => {
+router.get("/foodItems/:category", (req, res) => {
   db
     .collection("foodItems")
-    .find()
+    .find({ categories: req.params.category })
     .project({ name: 1 })
     .toArray((err, items) => {
       if (err) {
@@ -41,9 +41,10 @@ router.post("/foodItems", (req, res) => {
   const name = req.body.name;
   const ingredients = req.body.ingredients;
   const directions = req.body.directions;
+  const categories = req.body.categories;
   db
     .collection("foodItems")
-    .insertOne({ name, ingredients, directions })
+    .insertOne({ name, ingredients, directions, categories })
     .then(results => {
       res.send(JSON.stringify(results));
     })

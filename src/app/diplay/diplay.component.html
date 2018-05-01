@@ -1,4 +1,4 @@
-<div *ngFor="let item of items" class="card" style="cursor: pointer;" [routerLink]="['/displayItems', item._id]">
+<div *ngFor="let item of items" class="card" [routerLink]="['/displayItem', item._id]" [ngClass]="{link: !ingredients}">
   <mat-card>
     <mat-card-title>{{item.name}}</mat-card-title>
     <mat-card-content *ngIf="ingredients">

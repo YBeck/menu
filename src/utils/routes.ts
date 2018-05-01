@@ -1,6 +1,7 @@
 import { AddFoodItemComponent } from "../app/add-food-item/add-food-item.component";
 import { HomeComponent } from "../app/home/home.component";
 import { DiplayComponent } from "../app/diplay/diplay.component";
+import { CategoriesComponent } from "../app/categories/categories.component";
 
 export const routes = [
   {
@@ -8,11 +9,15 @@ export const routes = [
     component: AddFoodItemComponent
   },
   {
-    path: "displayItems",
+    path: "categories",
+    component: CategoriesComponent
+  },
+  {
+    path: "displayItems/:category",
     component: DiplayComponent
   },
   {
-    path: "displayItems/:id",
+    path: "displayItem/:id",
     component: DiplayComponent
   },
   {

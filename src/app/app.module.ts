@@ -9,6 +9,7 @@ import { MatListModule } from "@angular/material/list";
 import { AppComponent } from "./app.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AddFoodItemComponent } from "./add-food-item/add-food-item.component";
+import { MatSelectModule } from "@angular/material/select";
 import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -16,13 +17,16 @@ import { HomeComponent } from "./home/home.component";
 import { routes } from "../utils/routes";
 import { MenuService } from "./menu.service";
 import { DiplayComponent } from "./diplay/diplay.component";
+import { CategoriesComponent } from "./categories/categories.component";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
     AppComponent,
     AddFoodItemComponent,
     HomeComponent,
-    DiplayComponent
+    DiplayComponent,
+    CategoriesComponent
   ],
   imports: [
     HttpClientModule,
@@ -36,7 +40,9 @@ import { DiplayComponent } from "./diplay/diplay.component";
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule,
+    MatGridListModule
   ],
   providers: [MenuService],
   bootstrap: [AppComponent]

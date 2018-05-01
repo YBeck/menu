@@ -14,11 +14,18 @@ export class DiplayComponent implements OnInit {
   constructor(private menu: MenuService, private param: ActivatedRoute) {}
 
   ngOnInit() {
-    const param = this.param.snapshot.params.id;
-    this.menu.getItems(param).subscribe(res => {
-      this.items = res;
-      this.dislayIng();
-    });
+    const id = this.param.snapshot.params.id;
+    const category = this.param.snapshot.params.category;
+    if (id) {
+      this.menu.getItem(id).subscribe(res => {
+        this.items = res;
+        this.dislayIng();
+      });
+    } else if (category) {
+      this.menu.getItems(category).subscribe(res => {
+        this.items = res;
+      });
+    }
   }
 
   dislayIng() {

@@ -16,12 +16,14 @@ export class AddFoodItemComponent implements OnInit {
   error: boolean = false;
   success: boolean = false;
   name: string;
+  categories: string[] = ["Soups", "Main", "Sides", "Dessert", "Pastries"];
 
   constructor(private fb: FormBuilder, private menuService: MenuService) {
     this.form = fb.group({
       name: ["", Validators.required],
       ingredients: ["", Validators.required],
-      directions: ["", Validators.required]
+      directions: ["", Validators.required],
+      categories: ["", Validators.required]
     });
   }
 
@@ -31,9 +33,9 @@ export class AddFoodItemComponent implements OnInit {
       this.menuService
         .addItem(JSON.stringify(this.form.value))
         .subscribe(res => {
-          // console.log(res);
-          this.success = true;
+          console.log(res);
           this.name = this.form.value.name;
+          console.log(this.form.value);
         });
     } else {
       this.error = true;

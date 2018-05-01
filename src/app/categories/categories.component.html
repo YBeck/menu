@@ -1,0 +1,3 @@
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let category of categories" [routerLink]="['/displayItems', category]" style="cursor: pointer;">{{category}}</mat-grid-tile>
+</mat-grid-list>

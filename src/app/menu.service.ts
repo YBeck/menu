@@ -15,8 +15,12 @@ export class MenuService {
 
   constructor(private http: HttpClient) {}
 
-  getItems(item = "") {
-    return this.http.get(`${this.BASE_URL}/foodItems/${item}`);
+  getItem(itemId) {
+    return this.http.get(`${this.BASE_URL}/foodItem/${itemId}`);
+  }
+
+  getItems(category = "") {
+    return this.http.get(`${this.BASE_URL}/foodItems/${category}`);
   }
 
   addItem(item) {
