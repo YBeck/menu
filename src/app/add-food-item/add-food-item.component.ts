@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card";
@@ -12,6 +12,7 @@ import { MenuService } from "../menu.service";
   styleUrls: ["./add-food-item.component.css"]
 })
 export class AddFoodItemComponent implements OnInit {
+  @ViewChild("f") myform; //allows to rest form on submit without validation errors
   form: FormGroup;
   error: boolean = false;
   success: boolean = false;
@@ -33,9 +34,9 @@ export class AddFoodItemComponent implements OnInit {
       this.menuService
         .addItem(JSON.stringify(this.form.value))
         .subscribe(res => {
-          console.log(res);
           this.name = this.form.value.name;
-          console.log(this.form.value);
+          this.success = true;
+          this.myform.resetForm();
         });
     } else {
       this.error = true;

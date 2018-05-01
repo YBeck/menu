@@ -38,15 +38,11 @@ router.get("/foodItems/:category", (req, res) => {
 });
 
 router.post("/foodItems", (req, res) => {
-  const name = req.body.name;
-  const ingredients = req.body.ingredients;
-  const directions = req.body.directions;
-  const categories = req.body.categories;
   db
     .collection("foodItems")
-    .insertOne({ name, ingredients, directions, categories })
-    .then(results => {
-      res.send(JSON.stringify(results));
+    .insertOne(req.body)
+    .then(() => {
+      res.status(200).end();
     })
     .catch(console.error);
 });

@@ -9,7 +9,7 @@
     Add a food item
   </mat-card-title>
   <mat-card-content>
-    <form [formGroup]="form" (ngSubmit)=handleSubmit() class="addForm">
+    <form [formGroup]="form" (ngSubmit)=handleSubmit() class="addForm" #f="ngForm">
       <mat-form-field>
         <input matInput placeholder="Item name" formControlName="name">
       </mat-form-field>

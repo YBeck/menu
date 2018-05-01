@@ -9,7 +9,7 @@ export class MenuService {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
       Authorization: "my-auth-token",
-      responseType: "text"
+      responseType: "text/plain"
     })
   };
 
