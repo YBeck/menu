@@ -1,5 +1,8 @@
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let category of categories" [routerLink]="['/displayItems', category]" style="cursor: pointer; border: 2px dotted cornflowerblue">
-    <h2>{{category}}</h2>
+<mat-grid-list cols="2" rowHeight="2:1" style="padding:10px">
+  <mat-grid-tile *ngFor="let category of categories" [routerLink]="['/displayItems', category.name]" [ngClass]=category.name>
+    <img src={{category.url}}>
+    <mat-grid-tile-footer>
+      <h2>{{category.name}}</h2>
+    </mat-grid-tile-footer>
   </mat-grid-tile>
 </mat-grid-list>

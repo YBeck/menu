@@ -47,6 +47,16 @@ router.post("/foodItems", (req, res) => {
     .catch(console.error);
 });
 
+router.post("/foodItems/delete", (req, res) => {
+  db
+    .collection("foodItems")
+    .remove({ _id: ObjectId(req.body.id) })
+    .then(() => {
+      res.status(200).end();
+    })
+    .catch(console.error);
+});
+
 MongoClient.connect(url, (err, client) => {
   if (err) {
     throw err;

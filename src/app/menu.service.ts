@@ -26,4 +26,12 @@ export class MenuService {
   addItem(item) {
     return this.http.post(`${this.BASE_URL}/foodItems`, item, this.httpOptions);
   }
+
+  deleteItem(item) {
+    return this.http.post(
+      `${this.BASE_URL}/foodItems/delete`,
+      item,
+      this.httpOptions
+    );
+  }
 }

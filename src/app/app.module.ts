@@ -17,8 +17,13 @@ import { HomeComponent } from "./home/home.component";
 import { routes } from "../utils/routes";
 import { MenuService } from "./menu.service";
 import { DiplayComponent } from "./diplay/diplay.component";
+import { DialogData } from "./diplay/diplay.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import { MatGridListModule } from "@angular/material/grid-list";
+import {
+  MatDialogModule,
+  MAT_DIALOG_DEFAULT_OPTIONS
+} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -26,8 +31,10 @@ import { MatGridListModule } from "@angular/material/grid-list";
     AddFoodItemComponent,
     HomeComponent,
     DiplayComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    DialogData
   ],
+  entryComponents: [DialogData],
   imports: [
     HttpClientModule,
     BrowserModule,
@@ -42,9 +49,13 @@ import { MatGridListModule } from "@angular/material/grid-list";
     FormsModule,
     MatListModule,
     MatSelectModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ],
-  providers: [MenuService],
+  providers: [
+    MenuService,
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

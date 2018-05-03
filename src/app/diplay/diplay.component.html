@@ -1,6 +1,7 @@
-<div *ngFor="let item of items" class="card" [routerLink]="['/displayItem', item._id]" [ngClass]="{link: !ingredients}">
-  <mat-card>
-    <mat-card-title>{{item.name}}</mat-card-title>
+<div *ngFor="let item of items" class="card" [ngClass]="{link: !ingredients}">
+  <mat-card [routerLink]="['/displayItem', item._id]">
+    <mat-card-title>{{item.name}}
+    </mat-card-title>
     <mat-card-content *ngIf="ingredients">
       <mat-list>
         <mat-card-subtitle>Ingredients</mat-card-subtitle>
@@ -12,4 +13,7 @@
       <br/>{{item.directions}}
     </mat-card-content>
   </mat-card>
+  <div *ngIf="!ingredients">
+    <button mat-button color="warn" (click)="openDialog(item)">Delete</button>
+  </div>
 </div>

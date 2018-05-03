@@ -1,0 +1,29 @@
+img {
+  max-width: 100% !important;
+  height: 100% !important;
+}
+/* 
+.Soups {
+  background-image: url("../../assets/images/soup.jpg");
+}
+.Main {
+  background-image: url("../../assets/images/main.png");
+}
+.Sides {
+  background-image: url("../../assets/images/side.png");
+}
+.Dessert {
+  background-image: url("../../assets/images/dessert.jpg");
+}
+.Pastries {
+  background-image: url("../../assets/images/pastries.jpg");
+} */
+
+.Soups,
+.Main,
+.Sides,
+.Dessert,
+.Pastries {
+  /* background-size: cover; */
+  cursor: pointer;
+}

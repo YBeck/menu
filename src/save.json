@@ -1,0 +1,165 @@
+{
+        "_id" : ObjectId("5ae679ce8d4cfc19580ffa2d"),
+        "name" : "Cheese swirls",
+        "ingredients" : "1 pkg. puff pastry, 12oz. whipped cream cheese, 5 tbs. sugar, 1.5 tsp. v
+e & dark chocolate chips",
+        "directions" : "Roll out dough - smear on cheese - sprinkle on chips - roll up jelly roll
+. Bake 350 20 min.",
+        "categories" : "Pastries"
+}
+{
+        "_id" : ObjectId("5ae67a408d4cfc19580ffa2e"),
+        "name" : "Manicotti",
+        "ingredients" : "1 lg. onion sauteed, 2 15oz. cans tomato sauce, 1 can water, 2 tsp. lemo
+ar",
+        "directions" : "Cook manicotti a little. Mix meat with eggs. Stuff & bake 1 1/2 hours.",
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae67df094a94e1c6429a269"),
+        "name" : "Meat loaf",
+        "ingredients" : "1 lb. meat, 1 cup bread crumbs, 1 chopped onion (onion powder), 1 egg, 1
+mustard, 2 cans tomato sauce, 3 tbs. vinegar, 3 tbs. brown sugar",
+        "directions" : "Mix pour over meat. Bake at 350 1 hour 15 min.",
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae751ac94950c23c0c4cab1"),
+        "name" : "Sweet lukshen kugel",
+        "ingredients" : "3 eggs, 2 van. sugar, 3/4 cup sugar, 2 tbs, honey, 2 tbs. bread crumbs,
+alt, 1/2 tsp. cinnamon, 1 bag medium lukshen ",
+        "directions" : "cook and strain. Mix all ingredients. Bake 400 1 hour. Cover when take ou
+        "categories" : "Sides"
+}
+{
+        "_id" : ObjectId("5ae7d3a98080f91afc103339"),
+        "name" : "Teriyaki Salmon",
+        "ingredients" : "1/4 cup brown sugar, 1/4 cup teriyaki sauce, 1/4 cup ketchup, 1/4 cup or
+        "directions" : "Combine - pour over salmon - let sit 1/2 hour. Bake with sesame seeds on
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae7d8f18080f91afc10333a"),
+        "name" : "Squash Quiche",
+        "ingredients" : "1 egg, 1 Tbs. mayonnaise, 1 stick margarine, 2 Tbs. flour, 1/4 cup mince
+to taste, 2 large squash, 1 pie crust",
+        "directions" : "Cook and strain the squash, bake crust according to package instruction.
+ with the squash, pour into crust sprinkle with corn flake crumbs and bake 1-1 1/2 hours on 350",
+        "categories" : "Sides"
+}
+> db.foodItems.find().pretty()
+{
+        "_id" : ObjectId("5ae679ce8d4cfc19580ffa2d"),
+        "name" : "Cheese swirls",
+        "ingredients" : "1 pkg. puff pastry, 12oz. whipped cream cheese, 5 tbs. sugar, 1.5 tsp. v
+e & dark chocolate chips",
+        "directions" : "Roll out dough - smear on cheese - sprinkle on chips - roll up jelly roll
+. Bake 350 20 min.",
+        "categories" : "Pastries"
+}
+{
+        "_id" : ObjectId("5ae67a408d4cfc19580ffa2e"),
+        "name" : "Manicotti",
+        "ingredients" : "1 lg. onion sauteed, 2 15oz. cans tomato sauce, 1 can water, 2 tsp. lemo
+ar",
+        "directions" : "Cook manicotti a little. Mix meat with eggs. Stuff & bake 1 1/2 hours.",
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae67df094a94e1c6429a269"),
+        "name" : "Meat loaf",
+        "ingredients" : "1 lb. meat, 1 cup bread crumbs, 1 chopped onion (onion powder), 1 egg, 1
+mustard, 2 cans tomato sauce, 3 tbs. vinegar, 3 tbs. brown sugar",
+        "directions" : "Mix pour over meat. Bake at 350 1 hour 15 min.",
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae751ac94950c23c0c4cab1"),
+        "name" : "Sweet lukshen kugel",
+        "ingredients" : "3 eggs, 2 van. sugar, 3/4 cup sugar, 2 tbs, honey, 2 tbs. bread crumbs,
+alt, 1/2 tsp. cinnamon, 1 bag medium lukshen ",
+        "directions" : "cook and strain. Mix all ingredients. Bake 400 1 hour. Cover when take ou
+        "categories" : "Sides"
+}
+{
+        "_id" : ObjectId("5ae7d3a98080f91afc103339"),
+        "name" : "Teriyaki Salmon",
+        "ingredients" : "1/4 cup brown sugar, 1/4 cup teriyaki sauce, 1/4 cup ketchup, 1/4 cup or
+        "directions" : "Combine - pour over salmon - let sit 1/2 hour. Bake with sesame seeds on
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae7d8f18080f91afc10333a"),
+        "name" : "Squash Quiche",
+        "ingredients" : "1 egg, 1 Tbs. mayonnaise, 1 stick margarine, 2 Tbs. flour, 1/4 cup mince
+to taste, 2 large squash, 1 pie crust",
+        "directions" : "Cook and strain the squash, bake crust according to package instruction.
+ with the squash, pour into crust sprinkle with corn flake crumbs and bake 1-1 1/2 hours on 350",
+        "categories" : "Sides"
+}
+{
+        "_id" : ObjectId("5ae8a0979968c2151862cc48"),
+        "name" : "final test",
+        "ingredients" : "wdwq, dfgsg, dtstry",
+        "directions" : "srtydsb sr",
+        "categories" : "Dessert"
+}
+> db.foodItems.remove({"_id" : ObjectId("5ae8a0979968c2151862cc48")})
+WriteResult({ "nRemoved" : 1 })
+> db.foodItems.find().pretty()
+{
+        "_id" : ObjectId("5ae679ce8d4cfc19580ffa2d"),
+        "name" : "Cheese swirls",
+        "ingredients" : "1 pkg. puff pastry, 12oz. whipped cream cheese, 5 tbs. sugar, 1.5 tsp. v
+e & dark chocolate chips",
+        "directions" : "Roll out dough - smear on cheese - sprinkle on chips - roll up jelly roll
+. Bake 350 20 min.",
+        "categories" : "Pastries"
+}
+{
+        "_id" : ObjectId("5ae67a408d4cfc19580ffa2e"),
+        "name" : "Manicotti",
+        "ingredients" : "1 lg. onion sauteed, 2 15oz. cans tomato sauce, 1 can water, 2 tsp. lemo
+ar",
+        "directions" : "Cook manicotti a little. Mix meat with eggs. Stuff & bake 1 1/2 hours.",
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae67df094a94e1c6429a269"),
+        "name" : "Meat loaf",
+        "ingredients" : "1 lb. meat, 1 cup bread crumbs, 1 chopped onion (onion powder), 1 egg, 1
+mustard, 2 cans tomato sauce, 3 tbs. vinegar, 3 tbs. brown sugar",
+        "directions" : "Mix pour over meat. Bake at 350 1 hour 15 min.",
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae751ac94950c23c0c4cab1"),
+        "name" : "Sweet lukshen kugel",
+        "ingredients" : "3 eggs, 2 van. sugar, 3/4 cup sugar, 2 tbs, honey, 2 tbs. bread crumbs,
+alt, 1/2 tsp. cinnamon, 1 bag medium lukshen ",
+        "directions" : "cook and strain. Mix all ingredients. Bake 400 1 hour. Cover when take ou
+        "categories" : "Sides"
+}
+{
+        "_id" : ObjectId("5ae7d3a98080f91afc103339"),
+        "name" : "Teriyaki Salmon",
+        "ingredients" : "1/4 cup brown sugar, 1/4 cup teriyaki sauce, 1/4 cup ketchup, 1/4 cup or
+        "directions" : "Combine - pour over salmon - let sit 1/2 hour. Bake with sesame seeds on
+        "categories" : "Main"
+}
+{
+        "_id" : ObjectId("5ae7d8f18080f91afc10333a"),
+        "name" : "Squash Quiche",
+        "ingredients" : "1 egg, 1 Tbs. mayonnaise, 1 stick margarine, 2 Tbs. flour, 1/4 cup mince
+to taste, 2 large squash, 1 pie crust",
+        "directions" : "Cook and strain the squash, bake crust according to package instruction.
+ with the squash, pour into crust sprinkle with corn flake crumbs and bake 1-1 1/2 hours on 350",
+        "categories" : "Sides"
+}
+{
+        "_id" : ObjectId("5ae9f5c6b9cc01233cf933bf"),
+        "name" : "test",
+        "ingredients" : "foo",
+        "directions" : "tysrtsyrt",
+        "categories" : "Main"
+}
