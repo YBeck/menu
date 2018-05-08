@@ -11,9 +11,10 @@ import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 })
 export class DiplayComponent implements OnInit {
   items;
-  selectedItem;
+  selectedItemId;
   ingredients;
   category;
+  update: boolean = false;
   constructor(
     private menu: MenuService,
     private param: ActivatedRoute,
@@ -24,13 +25,18 @@ export class DiplayComponent implements OnInit {
     const id = this.param.snapshot.params.id;
     const category = this.param.snapshot.params.category;
     if (id) {
-      this.menu.getItem(id).subscribe(res => {
-        this.items = res;
-        this.displayIng();
-      });
+      this.idSelected(id);
     } else if (category) {
       this.CategorySelected(category);
     }
+  }
+
+  idSelected(id) {
+    this.menu.getItem(id).subscribe(res => {
+      this.items = res;
+      this.selectedItemId = id;
+      this.displayIng();
+    });
   }
 
   CategorySelected(category) {
@@ -53,12 +59,22 @@ export class DiplayComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.menu.deleteItem(JSON.stringify({ id: item._id })).subscribe(() => {
+        this.menu.deleteItem(item._id).subscribe(() => {
           // update the UI
           this.CategorySelected(this.category);
         });
       }
     });
+  }
+
+  onUpdate() {
+    this.update = true;
+  }
+
+  onUpdated() {
+    // update the UI
+    this.idSelected(this.selectedItemId);
+    this.update = false;
   }
 }
 

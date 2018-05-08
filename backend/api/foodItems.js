@@ -37,7 +37,7 @@ router.get("/foodItems/:category", (req, res) => {
     });
 });
 
-router.post("/foodItems", (req, res) => {
+router.post("/foodItem", (req, res) => {
   db
     .collection("foodItems")
     .insertOne(req.body)
@@ -47,10 +47,22 @@ router.post("/foodItems", (req, res) => {
     .catch(console.error);
 });
 
-router.post("/foodItems/delete", (req, res) => {
+router.delete("/foodItem/:id", (req, res) => {
   db
     .collection("foodItems")
-    .remove({ _id: ObjectId(req.body.id) })
+    .findOneAndDelete({ _id: ObjectId(req.params.id) })
+    .then(() => {
+      res.status(200).end();
+    })
+    .catch(console.error);
+});
+
+router.put("/foodItem/:id", (req, res) => {
+  console.log("id ", req.params.id);
+  console.log("body ", req.body);
+  db
+    .collection("foodItems")
+    .update({ _id: ObjectId(req.params.id) }, { $set: req.body })
     .then(() => {
       res.status(200).end();
     })
@@ -64,4 +76,4 @@ MongoClient.connect(url, (err, client) => {
   db = client.db("menu");
 });
 
-module.exports = router;
+module.exports = { first: router };

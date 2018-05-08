@@ -24,6 +24,9 @@ import {
   MatDialogModule,
   MAT_DIALOG_DEFAULT_OPTIONS
 } from "@angular/material/dialog";
+import { UpdateComponent } from "./update/update.component";
+import { MatCheckboxModule } from "@angular/material";
+import { UpdateCheckboxComponent } from './update-checkbox/update-checkbox.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import {
     HomeComponent,
     DiplayComponent,
     CategoriesComponent,
-    DialogData
+    DialogData,
+    UpdateComponent,
+    UpdateCheckboxComponent
   ],
   entryComponents: [DialogData],
   imports: [
@@ -50,7 +55,8 @@ import {
     MatListModule,
     MatSelectModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule
   ],
   providers: [
     MenuService,

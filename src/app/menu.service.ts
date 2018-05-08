@@ -24,13 +24,17 @@ export class MenuService {
   }
 
   addItem(item) {
-    return this.http.post(`${this.BASE_URL}/foodItems`, item, this.httpOptions);
+    return this.http.post(`${this.BASE_URL}/foodItem`, item, this.httpOptions);
   }
 
-  deleteItem(item) {
-    return this.http.post(
-      `${this.BASE_URL}/foodItems/delete`,
-      item,
+  deleteItem(itemId) {
+    return this.http.delete(`${this.BASE_URL}/foodItem/${itemId}`);
+  }
+
+  updateItem(itemId, body) {
+    return this.http.put(
+      `${this.BASE_URL}/foodItem/${itemId}`,
+      body,
       this.httpOptions
     );
   }

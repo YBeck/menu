@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title>
+    <h2 class="h2">Update {{item.name}}</h2>
+  </mat-card-title>
+  <mat-card-content>
+    <form #form="ngForm" (submit)="onSubmit(form, $event)">
+      <section class="section" name="update">
+        <mat-checkbox *ngFor="let property of properties" class="margin" name="update" [value]=property ngModel>{{property}}</mat-checkbox>
+      </section>
+      <button mat-raised-button type="submit" color="primary">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+<div *ngIf="selected ">
+  <app-update></app-update>
+</div>

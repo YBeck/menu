@@ -1,0 +1,8 @@
+.updateForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.updateForm > * {
+  width: 100%;
+}
