@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Input } from "@angular/core";
 import { MenuService } from "../menu.service";
 import { ReactiveFormsModule } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 
 @Component({
@@ -18,7 +18,8 @@ export class DiplayComponent implements OnInit {
   constructor(
     private menu: MenuService,
     private param: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -75,6 +76,10 @@ export class DiplayComponent implements OnInit {
     // update the UI
     this.idSelected(this.selectedItemId);
     this.update = false;
+  }
+
+  onBack(category) {
+    this.router.navigateByUrl(`displayItems/${category}`);
   }
 }
 

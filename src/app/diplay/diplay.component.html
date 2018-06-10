@@ -4,6 +4,7 @@
     </mat-card-title>
     <mat-card-content *ngIf="ingredients">
       <button mat-button color="primary" (click)="onUpdate()">Update</button>
+      <button mat-button color="primary" (click)="onBack(item.categories)">{{item.categories}}</button>
       <mat-list>
         <mat-card-subtitle>Ingredients</mat-card-subtitle>
         <mat-list-item *ngFor="let ing of ingredients">
